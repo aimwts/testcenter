@@ -15,7 +15,7 @@ aiTAAS Edge Project for TestCenter has two key technologies: EdgeOS and EdgeNC.
   * EdgeNC is an AI/ML-enabled edge computing device with netwrok data transfer capabilities, powered by CPU and FPGA that has Deep Neural Network (DNN) models; Inference with ML; Preprocess data; Tranfer data over network to Cloud.
 
 Benefits: This Solution has the benifits:
-  * Faster: Process DAUT Test Dat locally: Transform in real-time; Combine all your data sources
+  * Faster: Process DUT Test Dat locally: Transform in real-time; Combine all your data sources
   * Better: Reduce data loss
   * Advanced: Bring advanced ML capabilities to Adaptive Testing
   * Chapter: Develop own models using latest ML technlogies

@@ -1,18 +1,18 @@
-# Swim Greenhouse Demo
+# EdgeOS TestCenter Demo
 
 ## Overview
 
-This is an advanced sample application that demonstrates many of the key capabilities enabled by Swim, such as: 
+This is an advanced sample application that demonstrates many of the key capabilities enabled by EdgeOS, such as: 
  * The ability to deploy and run on edge devices, such as Raspberry Pi’s
  * The ability to distribute an application that shares consistency between nodes
  * The ability to aggregate data on a fabric at many levels
  * The ability to visualize data through a real-time UI
 
-This application is deployed in the Swim office for monitoring our plants and serves as a demonstration of best practices. Therefore, the description of this application will be through a hypothetical greenhouse scenario even though the application could be applied to any use cases involving sensors and/or a network of devices. 
+This application is deployed in the TestCenter office for monitoring our testers and serves as a demonstration of best practices. Therefore, the description of this application will be through a hypothetical TestCenter scenario even though the application could be applied to many use cases involving sensors, DUT testing real-time Data collection and/or a network of devices. 
 
-Inside the greenhouse, there are a number of Raspberry Pi devices with various roles. These roles are: Plant Monitor, Automated Robot, and Data Aggregator. It’s important to note that all Raspberry Pi devices run the same software with minor configuration changes that define how they act and participate within the greenhouse network. This diagram provides a simple overview of the complete application and configurations.
+Inside the TestCenter, there are a number of Raspberry Pi devices with various roles. These roles are: Tester Monitor, Automated Robot, and Data Aggregator. It’s important to note that all Raspberry Pi devices run the same software with minor configuration changes that define how they act and participate within the greenhouse network. This diagram provides a simple overview of the complete application and configurations.
 
-![Demo Application Map](https://github.com/swimos/greenhouse/blob/master/javascript/httpServer/views/assets/images/swim-demo-app-flow.gif "Demo Application Map")
+![Demo Application Map](https://github.com/aimwts/aiTAAS-Edge/blob/master/aiTAAS%20Edge%20Arch.pdf "Demo Application Map")
 
 
 Each device is also running a minimal NodeJS server alongside the Swim Web Agents. Node is used to serve the various status pages used by the web app and as a data bridge from the sensors into Swim. Unlike a traditional web application where all the pages are hosted in a central place, swim web applications can be hosted from each device. This ensures the UI is showing the real time data possible without the latency of being routed through various databases and/or cloud services.

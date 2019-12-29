@@ -12,7 +12,7 @@ This application is deployed in the TestCenter office for monitoring our testers
 
 Inside the TestCenter, there are a number of Raspberry Pi devices with various roles. These roles are: Tester Monitor, Automated Robot, and Data Aggregator. It’s important to note that all Raspberry Pi devices run the same software with minor configuration changes that define how they act and participate within the greenhouse network. This diagram provides a simple overview of the complete application and configurations.
 
-![Demo Application Map](https://github.com/aimwts/aiTAAS-Edge/blob/master/aiTAAS%20Edge%20Arch.pdf "Demo Application Map")
+![Demo Application Map](https://raw.githubusercontent.com/aimwts/aiTAAS-Edge/master/Edge%20map.jpg "Demo Application Map")
 
 
 Each device is also running a minimal NodeJS server alongside the Swim Web Agents. Node is used to serve the various status pages used by the web app and as a data bridge from the sensors into Swim. Unlike a traditional web application where all the pages are hosted in a central place, swim web applications can be hosted from each device. This ensures the UI is showing the real time data possible without the latency of being routed through various databases and/or cloud services.

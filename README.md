@@ -38,13 +38,13 @@ To get started:
 4. Navigate your browser to the address and port you configured your device to live at and verify that it serves out a page. If so you are setup!
 
 ## Configuration
-  Each device gets two configuration files which define how that device acts on the network of devices. One file defines what is needed for the Swim Web Agent and the other holds what is needed for NodeJS. Within the /config folder these files live in /java/ and /node respectively. You can define which set of configuration files to use at startup using the 'config' command line parameter. See the Scripts section below for more information about how to use this parameter. It is important to follow the naming convention shown in the example files when creating configuration files for new devices. An overview of the options within both files is below.
+  Each device gets two configuration files which define how that device acts on the network of devices. One file defines what is needed for the EdgeOS Web Agent and the other holds what is needed for NodeJS. Within the /config folder these files live in /java/ and /node respectively. You can define which set of configuration files to use at startup using the 'config' command line parameter. See the Scripts section below for more information about how to use this parameter. It is important to follow the naming convention shown in the example files when creating configuration files for new devices. An overview of the options within both files is below.
 
-  1. config/java/'*deviceName*'-app.properties - used by the SWIM service
+  1. config/java/'*deviceName*'-app.properties - used by the EdgeOS service
      * *aggregate.host.uri* - this should be the websocket address of the device acting as the aggregator on the network
      * *device.name* - this the 'Bot Name' and is used in a number of places. Importantly the name needs to have 'Agg', 'Plant', or 'Bot'. Those are used in a number of places to decide what type of bot the current device is. The IP address is inside the name is used by the UI for linking between devices this mean the name format must be something like nameOfBot|ip.of.bot with a pipe separating the name and IP.
      * *device.host.uri* -  this is the address of the current device. This is also used for linking devices together on the network.
-     * *swim.port* - port of the swim service. default is 5620
+     * *swim.port* - port of the EdgeOS service. default is 5620
      * *sensor.resolution* - The time in milliseconds over which we will sample time series data.
 
   2. config/node/'*deviceName*'Config.js
@@ -62,10 +62,10 @@ To get started:
         * service - configuration for senseHat service
           * enabled - boolean to turn on/off the senseHat Service 
           * polling - used to define if polling should be used to handle serial data and what interval in milliseconds the polling interval will be
-     * plantConfig - configuration which defines the PlantMon
-        * bot - configuration for the PlantMon bot
+     * plantConfig - configuration which defines the TesterMon
+        * bot - configuration for the TesterMon bot
           * enabled - boolean to turn on/off the plant monitor
-        * service - configuration for PlantMon service
+        * service - configuration for TesterMon service
           * enabled - boolean to turn on/off the senseHat Service 
           * arduinoAddress - address of the serial port the arduino is connected on.
           * baud - the baud rate at which to communicate over serial with arduino
@@ -73,7 +73,7 @@ To get started:
       
 ## Running
 
-This example has a number of bash scripts which are used to manage both node and swim services as well as convenience scripts to manage both at the same time. The scripts expect to the run from the base directory of the project on your local machine and may throw errors of run anywhere else. The scripts will handle packaging, publishing, and deploying your local code to one or more remote devices.
+This example has a number of bash scripts which are used to manage both node and EdgeOS services as well as convenience scripts to manage both at the same time. The scripts expect to the run from the base directory of the project on your local machine and may throw errors of run anywhere else. The scripts will handle packaging, publishing, and deploying your local code to one or more remote devices.
 
 In order to simplify using all the various scripts a parent bash script called AppManager is used to build, deploy, and start the app both locally and on remote devices.
 
@@ -91,25 +91,25 @@ The information below is also available on the command line by calling `./bin/ap
 
 *Local App Management Commands*
 
-* **`start`** - start up both node and swim
+* **`start`** - start up both node and EdgeOS
 * **`startNode`** - start up just node
-* **`startSwim`** - start up just swim
-* **`stop`** - stop node, swim, and chromium
+* **`startSwim`** - start up just EdgeOS
+* **`stop`** - stop node, EdgeOS, and chromium
 * **`stopNode`** - stop just node
-* **`stopSwim`** - stop just swim
+* **`stopSwim`** - stop just EDgeOS
 * **`build`** - build both node (npm) and swim (gradle)
 * **`buildNode`** - build node with npm
-* **`buildSwim`** - build swim with gradle and untar to dist
-* **`package`** - creates a gzip package file to the /dist directory of both node and swim codebase which is then used for remote deployment
+* **`buildSwim`** - build EDgeOS with gradle and untar to dist
+* **`package`** - creates a gzip package file to the /dist directory of both node and EdgeOS codebase which is then used for remote deployment
 * **`packageNode`** - creates a package of just the node side of the app
-* **`packageSwim`** - creates a package of just the SWIM side of the app
+* **`packageSwim`** - creates a package of just the EdgeOS side of the app
 
 *Remote AppManager Commands*
 
 * **`testssh`** - used to verify that you are able to use sshpass to ssh into the remote device
 * **`publish`** - Pushes the package file to each device and unpacks it into the runtime folder
 * **`publishNode`** - Pushes just the node the package file to each device and unpacks it into the runtime folder
-* **`publishSwim`** - Pushes just the swim the package file to each device and unpacks it into the runtime folder
+* **`publishSwim`** - Pushes just the EDgeOS the package file to each device and unpacks it into the runtime folder
 * **`all`** - Does a full package, publish and build to each device. Removes target install and build folders before publish and restarts the device once coplete
 * **`startRemote`** - Stops and restarts target device. Cleans out temp files and swim db before start up.
 * **`stopRemote`** - Stops target device.
@@ -146,19 +146,19 @@ The information below is also available on the command line by calling `./bin/ap
 
 ## Data Bridges
 
-This example provides a number of example data bridges which bring the the sensor data into Swim. Fundamentally all the bridges simply call command lanes on the Swim services to inject data into Swim.
+This example provides a number of example data bridges which bring the the sensor data into EdgeOS. Fundamentally all the bridges simply call command lanes on the EdgeOS services to inject data into Swim.
 
-## Swim Services
+## EdgeOS Services
 
-The exact same bundle is deployed to every device. Consequently, every device contains the exact same Swim `Service` *definitions*; varying the configuration only affects the `Service` *instantiations*. In this project, every service descibed here can also be considered a *Swim Web Agent*.
+The exact same bundle is deployed to every device. Consequently, every device contains the exact same EDgeOS `Service` *definitions*; varying the configuration only affects the `Service` *instantiations*. In this project, every service descibed here can also be considered a *EDgeOS Web Agent*.
 
 1. **`SensorService`** - A physical sensor's digital twin. It exposes both the **latest** value and a **history** of values measured by its corresponding sensor. A configurable **threshold** can be defined within each `SensorService`, and deviating from it will raise an **alert**.
 2. **`DeviceService`** - A device's digital twin. It exposes the **latest** value from all sensors attached to the device and contains the logic to **communicate** with any bots assigned to diagnose issues with these sensors.
 3. **`BotService`** - A bot's digital twin. It directly **observes** `SensorServices` for alerts, then resolves them via **communication** with the reporting `SensorServices'` `DeviceServices`.
-4. **`AggregateService`** - The greenhouse's digital twin. Data-wise, it provides **summary statistics** across all fields being observed by all devices. Operation-wise, it reports the **status** of all bots and **health** of all devices in its greenhouse.
+4. **`AggregateService`** - The greenhouse's digital twin. Data-wise, it provides **summary statistics** across all fields being observed by all devices. Operation-wise, it reports the **status** of all bots and **health** of all devices in its TestCenter.
 
 ## NodeJS Application Structure
 
-The NodeJS server has three parts. First is a simple [Express Server](https://expressjs.com/) to serve out the various webpages which make up the web app. The second part is called 'services' and essentially act as the data bridges into Swim. The third part are called 'bots' and they can act upon data derived from the various Swim Lanes the Swim service provides.
+The NodeJS server has three parts. First is a simple [Express Server](https://expressjs.com/) to serve out the various webpages which make up the web app. The second part is called 'services' and essentially act as the data bridges into EDgeOS. The third part are called 'bots' and they can act upon data derived from the various EDgeOS Lanes the EDgeOS service provides.
 
 

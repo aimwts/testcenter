@@ -28,6 +28,8 @@ Inside the TestCenter, there are a number of Raspberry Pi devices with various r
 
 ![Demo Application Map](https://raw.githubusercontent.com/aimwts/aiTAAS-Edge/master/Edge%20map.jpg "Demo Application Map")
 
+![Demo Application Map](https://raw.githubusercontent.com/aimwts/aiTAAS-Edge/master/STH%20STC1000.jpg "Demo Application Map")
+
 
 Each device is also running a minimal NodeJS server alongside the EdgeOS Web Agents. Node is used to serve the various status pages used by the web app and as a data bridge from the sensors into EdgeOS. Unlike a traditional web application where all the pages are hosted in a central place, EdgeOS web applications can be hosted from each device. This ensures the UI is showing the real time data possible without the latency of being routed through various databases and/or cloud services.
 

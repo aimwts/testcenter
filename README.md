@@ -12,13 +12,13 @@ This application is deployed in the TestCenter office for monitoring our testers
 
 aiTAAS Edge Project for TestCenter has two key technologies: EdgeOS and EdgeNC. 
   * EdgeOS is a real-time Data Classification & Analytics OS for IIOT sensors and DUT test data classification, reduction, analysis and prediction.  
-  * EdgeNC is an AI/ML-enabled edge computing device with netwrok data transfer capabilities, powered by CPU and FPGA that has Deep Neural Network (DNN) models; Inference with ML; Preprocess data; Tranfer data over network to Cloud.
+  * EdgeNC is an AI/ML-enabled edge computing device with network data transfer capabilities, powered by CPU and FPGA that has Deep Neural Network (DNN) models; Inference with ML; Preprocess data; Transfer data over network to Cloud.
 
-Benefits: This Solution has the benifits:
-  * Faster: Process DUT Test Dat locally: Transform in real-time; Combine all your data sources
+Benefits: This Solution has the benefits:
+  * Faster: Process DUT Test Data locally: Transform in real-time; Combine all your data sources
   * Better: Reduce data loss
   * Advanced: Bring advanced ML capabilities to Adaptive Testing
-  * Chapter: Develop own models using latest ML technlogies
+  * Chapter: Develop own models using latest ML technologies
   * Easier:  Simple configuration - Effortless onboarding; Scale to massive data volume
 
 Inside the TestCenter, there are a number of Raspberry Pi devices with various roles. These roles are: Tester Monitor, Automated Robot, and Data Aggregator. It’s important to note that all Raspberry Pi devices run the same software with minor configuration changes that define how they act and participate within the greenhouse network. This diagram provides a simple overview of the complete application and configurations.

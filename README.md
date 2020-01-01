@@ -23,6 +23,9 @@ Benefits: This Solution has the benifits:
 
 Inside the TestCenter, there are a number of Raspberry Pi devices with various roles. These roles are: Tester Monitor, Automated Robot, and Data Aggregator. It’s important to note that all Raspberry Pi devices run the same software with minor configuration changes that define how they act and participate within the greenhouse network. This diagram provides a simple overview of the complete application and configurations.
 
+![Demo Application Map](https://raw.githubusercontent.com/aimwts/aiTAAS-Edge/master/Taas_logo_s.jpg "Demo Application Map")
+
+
 ![Demo Application Map](https://raw.githubusercontent.com/aimwts/aiTAAS-Edge/master/Edge%20map.jpg "Demo Application Map")
 
 

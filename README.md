@@ -1,4 +1,4 @@
-# TAAS EdgeOS TestCenter Demo
+# TAAS EdgeOS TestCenter Demo - Demo running in Lab on 8/11/20
 
 ## Overview
 

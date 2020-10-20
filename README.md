@@ -1,5 +1,5 @@
 # TAAS EdgeOS TestCenter Demo - Demo running in Lab on 8/11/20
-
+# updated check: 10/20/2020 
 ## Overview
 
 This is an advanced sample application that demonstrates many of the key capabilities enabled by EdgeOS, such as: 
